@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>backpack</id>
+    <name>Backpack</name>
+    <summary>Save interesting links in your &#39;backpack&#39; for later access.</summary>
+    <description><![CDATA[Backpack is a useful tool for saving and archiving links you see mobile or on your desktop and still having the full control over your data.]]></description>
+    <licence>agpl</licence>
+    <author mail="info@chrisonntag.com" homepage="http://www.chrisonntag.com">Christoph Sonntag</author>
+    <version>0.0.1</version>
+    <namespace>Backpack</namespace>
+    <category>office</category>
+    <category>organization</category>
+    <dependencies>
+        <owncloud min-version="9.1"/>
+        <nextcloud min-version="10" max-version="10"/>
+    </dependencies>
+</info>
