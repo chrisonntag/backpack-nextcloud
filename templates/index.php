@@ -1,4 +1,5 @@
 <?php
+script('backpack', 'handlebars');
 script('backpack', 'script');
 style('backpack', 'style');
 ?>

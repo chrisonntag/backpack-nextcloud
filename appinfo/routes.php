@@ -8,12 +8,13 @@
  * it's instantiated in there
  */
 return [
+    'resources' => [
+        'link' => ['url' => '/links'],
+        'link_api' => ['url' => '/api/0.1/links']
+    ],
     'routes' => [
         ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-        ['name' => 'link#index', 'url' => '/links', 'verb' => 'GET'],
-        ['name' => 'link#show', 'url' => '/links/{id}', 'verb' => 'GET'],
-        ['name' => 'link#create', 'url' => '/links', 'verb' => 'POST'],
-        ['name' => 'link#update', 'url' => '/links/{id}', 'verb' => 'PUT'],
-        ['name' => 'link#destroy', 'url' => '/links/{id}', 'verb' => 'DELETE']
+        ['name' => 'link_api#preflighted_cors', 'url' => '/api/0.1/{path}',
+         'verb' => 'OPTIONS', 'requirements' => ['path' => '.+']]
     ]
 ];
