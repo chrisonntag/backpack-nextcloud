@@ -189,7 +189,7 @@ View.prototype = {
     }
 };
 
-var links = new links(OC.generateUrl('/apps/backpack/links'));
+var links = new Links(OC.generateUrl('/apps/backpack/links'));
 
 var view = new View(links);
 links.loadAll().done(function () {
