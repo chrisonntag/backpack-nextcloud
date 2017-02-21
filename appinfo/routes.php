@@ -9,7 +9,11 @@
  */
 return [
     'routes' => [
-	   ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
-	   ['name' => 'page#do_echo', 'url' => '/echo', 'verb' => 'POST'],
+        ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
+        ['name' => 'link#index', 'url' => '/links', 'verb' => 'GET'],
+        ['name' => 'link#show', 'url' => '/links/{id}', 'verb' => 'GET'],
+        ['name' => 'link#create', 'url' => '/links', 'verb' => 'POST'],
+        ['name' => 'link#update', 'url' => '/links/{id}', 'verb' => 'PUT'],
+        ['name' => 'link#destroy', 'url' => '/links/{id}', 'verb' => 'DELETE']
     ]
 ];
