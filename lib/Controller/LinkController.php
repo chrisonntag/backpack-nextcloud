@@ -1,20 +1,32 @@
 <?php
  namespace OCA\Backpack\Controller;
 
+ use Exception;
+
  use OCP\IRequest;
+ use OCP\AppFramework\Http;
+ use OCP\AppFramework\Http\DataResponse;
  use OCP\AppFramework\Controller;
+
+ use OCA\Backpack\Db\Note;
+ use OCA\Backpack\Db\NoteMapper;
 
  class LinkController extends Controller {
 
-     public function __construct($AppName, IRequest $request){
+     private $mapper;
+     private $userId;
+
+     public function __construct($AppName, IRequest $request, LinkMapper $mapper, $UserId){
          parent::__construct($AppName, $request);
+         $this->mapper = $mapper;
+         $this->userId = $UserId;
      }
 
      /**
       * @NoAdminRequired
       */
      public function index() {
-         // empty for now
+         return new DataResponse($this->mapper->findAll($this->userId));
      }
 
      /**
@@ -23,7 +35,11 @@
       * @param int $id
       */
      public function show($id) {
-         // empty for now
+         try {
+             return new DataResponse($this->mapper->find($id, $this->userId));
+         } catch(Exception $e) {
+             return new DataResponse([], Http::STATUS_NOT_FOUND);
+         }
      }
 
      /**
@@ -32,8 +48,12 @@
       * @param string $title
       * @param string $content
       */
-     public function create($title, $content) {
-         // empty for now
+     public function create($title, $link) {
+         $note = new Link();
+         $note->setTitle($title);
+         $note->setLink($link);
+         $note->setUserId($this->userId);
+         return new DataResponse($this->mapper->insert($note));
      }
 
      /**
@@ -43,8 +63,15 @@
       * @param string $title
       * @param string $content
       */
-     public function update($id, $title, $content) {
-         // empty for now
+     public function update($id, $title, $link) {
+         try {
+             $note = $this->mapper->find($id, $this->userId);
+         } catch(Exception $e) {
+             return new DataResponse([], Http::STATUS_NOT_FOUND);
+         }
+         $note->setTitle($title);
+         $note->setLink($link);
+         return new DataResponse($this->mapper->update($note));
      }
 
      /**
@@ -53,7 +80,13 @@
       * @param int $id
       */
      public function destroy($id) {
-         // empty for now
+         try {
+             $note = $this->mapper->find($id, $this->userId);
+         } catch(Exception $e) {
+             return new DataResponse([], Http::STATUS_NOT_FOUND);
+         }
+         $this->mapper->delete($note);
+         return new DataResponse($note);
      }
 
  }
