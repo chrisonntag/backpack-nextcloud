@@ -11,12 +11,12 @@ return ['routes' => [
     // page
     ['name' => 'page#index', 'url' => '/', 'verb' => 'GET'],
     // links
-    ['name' => 'links#index', 'url' => '/links', 'verb' => 'GET'],
-    ['name' => 'links#get', 'url' => '/links/{id}', 'verb' => 'GET'],
-    ['name' => 'links#create', 'url' => '/links', 'verb' => 'POST'],
-    ['name' => 'links#update', 'url' => '/links/{id}', 'verb' => 'PUT'],
-    ['name' => 'links#favorite', 'url' => '/links/{id}/favorite', 'verb' => 'PUT'],
-    ['name' => 'links#destroy', 'url' => '/links/{id}', 'verb' => 'DELETE'],
+    ['name' => 'link#index', 'url' => '/links', 'verb' => 'GET'],
+    ['name' => 'link#get', 'url' => '/links/{id}', 'verb' => 'GET'],
+    ['name' => 'link#create', 'url' => '/links', 'verb' => 'POST'],
+    ['name' => 'link#update', 'url' => '/links/{id}', 'verb' => 'PUT'],
+    ['name' => 'link#favorite', 'url' => '/links/{id}/favorite', 'verb' => 'PUT'],
+    ['name' => 'link#destroy', 'url' => '/links/{id}', 'verb' => 'DELETE'],
     // api
     ['name' => 'link_api#index', 'url' => '/api/v0.2/links', 'verb' => 'GET'],
     ['name' => 'link_api#get', 'url' => '/api/v0.2/links/{id}', 'verb' => 'GET'],
