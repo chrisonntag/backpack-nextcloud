@@ -44,19 +44,19 @@ class LinkService {
         }
     }
 
-    public function create($title, $link, $userId) {
+    public function create($title, $_link, $userId) {
         $link = new Link();
         $link->setTitle($title);
-        $link->setLink($link);
+        $link->setLink($_link);
         $link->setUserId($userId);
         return $this->mapper->insert($link);
     }
 
-    public function update($id, $title, $link, $userId) {
+    public function update($id, $title, $_link, $userId) {
         try {
             $link = $this->mapper->find($id, $userId);
             $link->setTitle($title);
-            $link->setLink($link);
+            $link->setLink($_link);
             return $this->mapper->update($link);
         } catch(Exception $e) {
             $this->handleException($e);

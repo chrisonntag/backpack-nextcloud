@@ -8,8 +8,8 @@
  use OCP\AppFramework\Http\DataResponse;
  use OCP\AppFramework\Controller;
 
- use OCA\Backpack\Db\Note;
- use OCA\Backpack\Db\NoteMapper;
+ use OCA\Backpack\Db\Link;
+ use OCA\Backpack\Db\LinkMapper;
 
  class LinkController extends Controller {
 
@@ -46,14 +46,14 @@
       * @NoAdminRequired
       *
       * @param string $title
-      * @param string $content
+      * @param string $link
       */
-     public function create($title, $link) {
-         $note = new Link();
-         $note->setTitle($title);
-         $note->setLink($link);
-         $note->setUserId($this->userId);
-         return new DataResponse($this->mapper->insert($note));
+     public function create($title, $_link) {
+         $link = new Link();
+         $link->setTitle($title);
+         $link->setLink($_link);
+         $link->setUserId($this->userId);
+         return new DataResponse($this->mapper->insert($link));
      }
 
      /**
@@ -61,17 +61,17 @@
       *
       * @param int $id
       * @param string $title
-      * @param string $content
+      * @param string $link
       */
-     public function update($id, $title, $link) {
+     public function update($id, $title, $_link) {
          try {
-             $note = $this->mapper->find($id, $this->userId);
+             $link = $this->mapper->find($id, $this->userId);
          } catch(Exception $e) {
              return new DataResponse([], Http::STATUS_NOT_FOUND);
          }
-         $note->setTitle($title);
-         $note->setLink($link);
-         return new DataResponse($this->mapper->update($note));
+         $link->setTitle($title);
+         $link->setLink($_link);
+         return new DataResponse($this->mapper->update($link));
      }
 
      /**
@@ -81,12 +81,12 @@
       */
      public function destroy($id) {
          try {
-             $note = $this->mapper->find($id, $this->userId);
+             $link = $this->mapper->find($id, $this->userId);
          } catch(Exception $e) {
              return new DataResponse([], Http::STATUS_NOT_FOUND);
          }
-         $this->mapper->delete($note);
-         return new DataResponse($note);
+         $this->mapper->delete($link);
+         return new DataResponse($link);
      }
 
  }
