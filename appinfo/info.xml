@@ -5,14 +5,16 @@
     <name>Backpack</name>
     <summary>Save interesting links in your &#39;backpack&#39; for later access.</summary>
     <description><![CDATA[Backpack is a useful tool for saving and archiving links you see mobile or on your desktop and still having the full control over your data.]]></description>
-    <licence>agpl</licence>
-    <author mail="info@chrisonntag.com" homepage="http://www.chrisonntag.com">Christoph Sonntag</author>
-    <version>0.0.3</version>
+    <licence>AGPL</licence>
+    <author>Christoph Sonntag</author>
+    <website>http://www.chrisonntag.com</website>
+    <version>0.1.1</version>
     <namespace>Backpack</namespace>
     <category>office</category>
     <category>organization</category>
+    <repository type="git">https://github.com/chrisonntag/backpack-nextcloud.git</repository>
     <dependencies>
-        <owncloud min-version="9.1"/>
+        <owncloud min-version="9.1" max-version="9.1"/>
         <nextcloud min-version="10" max-version="10"/>
     </dependencies>
 </info>
