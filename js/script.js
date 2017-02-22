@@ -16,9 +16,12 @@ var Links = function (baseUrl) {
 
 Links.prototype = {
     load: function (id) {
+        console.log(this._links);
         var self = this;
         this._links.forEach(function (link) {
-            if (link.id === id) {
+            if(link === null) {
+                console.log("Link is null");
+            } else if (link.id === id) {
                 link.active = true;
                 self._activelink = link;
             } else {
