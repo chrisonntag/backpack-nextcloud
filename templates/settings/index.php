@@ -5,6 +5,6 @@
 		></button>
 	</div>
 	<div id="app-settings-content">
-		<!-- Your settings in here -->
+		<input type="text" id="api_link" value="index.php/apps/backpack/api/v0.2/links"></input>
 	</div>
 </div>
