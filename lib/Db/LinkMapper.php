@@ -7,7 +7,7 @@ use OCP\AppFramework\Db\Mapper;
 class LinkMapper extends Mapper {
 
     public function __construct(IDb $db) {
-        parent::__construct($db, 'backpack_links', '\OCA\Backpack\Db\Note');
+        parent::__construct($db, 'backpack_links', '\OCA\Backpack\Db\Link');
     }
 
     public function find($id, $userId) {

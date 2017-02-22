@@ -150,7 +150,7 @@ View.prototype = {
         $('#new-link').click(function () {
             var link = {
                 title: translations.newlink,
-                link: ''
+                link: 'http://'
             };
 
             self._links.create(link).done(function() {
