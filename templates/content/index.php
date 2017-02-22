@@ -18,7 +18,7 @@
         	<label for="link_field">Link: </label>
         	<input id="link_field" type="text" disabled></input>
         </div>
-        <div class="save"><button disabled></button></div>
+        <div class="save"><button disabled><?php p($l->t('Save')); ?></button></div>
     {{/if}}
 </script>
 <div id="editor"></div>

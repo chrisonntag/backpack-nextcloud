@@ -121,13 +121,14 @@ View.prototype = {
         $('#editor').html(html);
 
         // handle saves
-        var textarea = $('#app-content textarea');
+        var title_field = $('#app-content #title_field');
+        var link_field = $('#app-content #link_field');
         var self = this;
         $('#app-content button').click(function () {
-            var content = textarea.val();
-            var title = content.split('\n')[0]; // first line is the title
+            var link_text = link_field.val();
+            var title_text = title_field.val();
 
-            self._links.updateActive(title, link).done(function () {
+            self._links.updateActive(title_text, link_text).done(function () {
                 self.render();
             }).fail(function () {
                 alert('Could not update link, not found');
@@ -151,7 +152,7 @@ View.prototype = {
 
             self._links.create(link).done(function() {
                 self.render();
-                $('#editor textarea').focus();
+                $('#editor #title_field').focus();
             }).fail(function () {
                 alert('Could not create link');
             });
@@ -180,7 +181,7 @@ View.prototype = {
             var id = parseInt($(this).parent().data('id'), 10);
             self._links.load(id);
             self.render();
-            $('#editor textarea').focus();
+            $('#editor #title_field').focus();
         });
     },
     render: function () {
