@@ -3,19 +3,26 @@
 }
 
 #editor {
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
+    margin: 30px;
+    border: 1px solid #cccccc;
 }
 
 #editor .input {
-    height: calc(100% - 51px);
+    height: calc(50% - 51px);
     width: 100%;
+    padding: 12px 12px 9px 12px;
+}
+
+#editor .input label {
+    margin-right: 12px;
 }
 
 #editor .save {
     height: 50px;
     width: 100%;
-    text-align: center;
+    text-align: left;
     border-top: 1px solid #ccc;
     background-color: #fafafa;
 }
@@ -31,4 +38,5 @@
 
 #editor button {
     height: 44px;
+    margin-left: 12px;
 }
