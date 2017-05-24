@@ -25,3 +25,19 @@ return ['routes' => [
     ['name' => 'link_api#preflighted_cors', 'url' => '/api/v0.2/{path}',
      'verb' => 'OPTIONS', 'requirements' => ['path' => '.+']],
 ]];
+
+/**
+ * Registering routes for external API. Note that REST is stateless -->
+ * username and password have to be sent each time we access the API
+ */
+/*
+\OCP\API::register(
+  'get',
+  '/apps/backpack/api/v0.2/links',
+  function($urlParameters) {
+    return new \OC_OCS_Result($data);
+  },
+  'backpack',
+  \OC_API::ADMIN_AUTH
+);
+ */
